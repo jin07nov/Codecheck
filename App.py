@@ -1,11 +1,8 @@
 #左側にドイツ語を書くと文法の間違いを修正してくれる。
 import os
-import googletrans
 import openai
-from googletrans import Translator
 import streamlit as st
 import difflib
-import html2text
 import diff_viewer
 from dotenv import load_dotenv
 #pip install streamlit-diff-viewer
@@ -80,7 +77,7 @@ def main():
     #    '入力テキストの言語',
     #    options=LANGUAGES,
     #)
-    input_text = left_col.text_area('テキストを入力してください', height=500)
+    input_text = left_col.text_area('コードを入力してください', height=500)
 
     # Right area contents
     #target_lang = right_col.selectbox(
@@ -90,8 +87,6 @@ def main():
 
     
     if input_text is not None:
-        translator = Translator(service_urls=['translate.google.com'])
-        #translated_text=translator.translate(input_text, dest='ja').text
         translated_text=Chatgpttranslator(text=input_text)
         input_lines = input_text.split('\n')
         translated_lines = translated_text.split('\n')
@@ -101,7 +96,7 @@ def main():
         output_txt ="text here"
     
     right_col.text_area(
-        "AIによって提案されたテキスト",
+        "AIによって提案されたコード",
         value= output_txt,
         height=500,
     )
