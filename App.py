@@ -4,7 +4,7 @@ import openai
 import streamlit as st
 import difflib
 import diff_viewer
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 #pip install streamlit-diff-viewer
 
 
@@ -12,7 +12,7 @@ LANGUAGES = {"ドイツ語作文の文法チェック" : "EN", "日本語の誤�
 TRANSLATORMODEL = {"Gpt-4" : "0", "Chat GPT" : "1"}
 
 def openai_api_load():
-    load_dotenv()    
+    #load_dotenv()    
     APIKEYINPUT = st.sidebar.text_input('OpenAI API Key', type='password')
     openai.api_key = APIKEYINPUT
     APIKEYOUTPUT = openai.api_key
