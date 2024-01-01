@@ -17,10 +17,7 @@ TRANSLATORMODEL = {"Gpt-4" : "0", "Chat GPT" : "1"}
 def openai_api_load():
     load_dotenv()    
     APIKEYINPUT = st.sidebar.text_input('OpenAI API Key', type='password')
-    if APIKEYINPUT == os.environ['PASSWORD']:
-        openai.api_key = os.environ['MY_API_KEY']
-    else :
-        openai.api_key = APIKEYINPUT
+    openai.api_key = APIKEYINPUT
     APIKEYOUTPUT = openai.api_key
     if APIKEYOUTPUT.startswith('sk-'):
         st.warning('API key is set correctly!', icon='✅')
