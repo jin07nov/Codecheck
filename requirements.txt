@@ -1,3 +1,4 @@
 openai==0.28.0
 streamlit
 streamlit-diff-viewer
+python-dotenv
